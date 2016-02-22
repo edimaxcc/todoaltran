@@ -1,0 +1,79 @@
+.container#todoindex
+  .row
+    .col-xs-12
+      .table-responsive
+        %table.table.table-bordered.table-hover
+          %caption.text-center
+            %h3= link_to "Create TO-DO", new_todo_path
+          %thead
+            %tr
+              %th ID
+              %th Descripton
+              %th User Name
+              %th Status
+          %tbody
+            - if user_signed_in?
+              - @user_todos.each do |t|
+                %tr
+                  %td 
+                    = t.id
+                  %td
+                    = link_to t.description, t
+                  %td 
+                    = link_to t.user.username, "/users/#{t.user_id}" 
+                  %td
+                    %p Pending
+
+  .row
+    .col-xs-12
+      .table-responsive
+        %table.table.table-bordered.table-hover
+          %caption.text-center
+            %h3= "List done To-do"
+          %thead
+            %tr
+              %th ID
+              %th Descripton
+              %th User Name
+              %th Status
+          %tbody
+            - if user_signed_in?
+              - @done_todos.each do |t|
+                %tr
+                  %td 
+                    = t.id
+                  %td
+                    = link_to t.description, t
+                  %td 
+                    = link_to t.user.username, "/users/#{t.user_id}" 
+                  %td
+                    - if t.done
+                      %p Fished 
+  - if current_user.admin?
+    .row
+      .col-xs-12
+        .table-responsive
+          %table.table.table-bordered.table-hover
+            %caption.text-center
+              %h3 List All To-do
+            %thead
+              %tr
+                %th ID
+                %th Descripton
+                %th User Name
+                %th Status
+            %tbody
+              - if user_signed_in?
+                - @todos.each do |t|
+                  %tr
+                    %td 
+                      = t.id
+                    %td
+                      = link_to t.description, t
+                    %td 
+                      = link_to t.user.username, "/users/#{t.user_id}" 
+                    %td
+                      - if t.done
+                        %p Fished
+                      - else
+                        %p Pending

@@ -1,0 +1,13 @@
+.container#showtodo
+  = form_for(@todo, html: { class: "form-horizontal", role: "form" }) do |t|
+    .jumbotron
+      = t.label :description, class: "col-sm-2 control-label"
+      = t.text_area :description, class: "form-control"
+      = t.hidden_field :done, :value => false
+      = t.label :finished
+      = t.check_box :done 
+    .form-group-edit
+    .row#back_btn
+      .col-sm-offset-2.col-sm-10
+        = link_to "Cancela", todos_path, class: "btn btn-primary Back", id: "btn_show"
+        = t.submit class: "btn btn-primary"

@@ -1,0 +1,41 @@
+.sidebar
+  %ul.text
+    %a.profile
+      - if user_signed_in? 
+        %li
+        %div= current_user.username
+        %a
+          %li= link_to "Home", root_path
+        %a
+          %li= link_to  "Settings", edit_user_registration_path
+  %ul.icon
+    %a.profile
+      %li
+    %a
+      %li
+        %i 
+        = link_to '', root_path, class: "glyphicon glyphicon-home"
+    %a
+      %li
+        %i
+        = link_to '', edit_user_registration_path, class: "glyphicon glyphicon-user"
+    %a
+      %li
+        %i.fa.fa-envelope
+.social-bar
+  .slidenav
+    .bar
+    .bar.middle
+    .bar
+  %ul
+    - if user_signed_in?
+      %a{:href => "#"}
+        %li= link_to current_user.username
+    
+      %a{:href => "#"}
+        %li
+        = link_to "Log Out", destroy_user_session_path, method: :delete
+    - else 
+      %a{:href => "#"}
+        %li
+        = link_to "Log in", new_user_session_path

@@ -1,0 +1,43 @@
+== Teste para desenvolvedor TruckPad - TODO List
+
+Este teste deve ser realizado em 7 dias corridos e publicado num repositório público no Github.
+
+=== Objetivos:
+
+* Criar páginas e navegação
+
+* Adicionar um modelo de autenticação e perfis de usuário que permita usuários comuns e administradores
+
+* Usuários comuns podem logar, criar novos itens de TODO para ele, editar, excluir e marcar como finalizado
+
+* Administradores podem administrar todos os registros
+
+* Criação de TODO deve ser simples e efetiva, possibilitando criar várias tasks rapidamente (utilizar ajax)
+
+* Os itens da lista de tarefas do usuário podem ser priorizados e ordenados
+
+
+=== O que será avaliado
+
+* O código deve atender os requisitos
+
+* Qualidade e estilo de código
+
+* Testes e cobertura
+
+* Performance do código
+
+
+=== Premissas
+
+* Deve ser utilizado o código fornecido para o teste
+
+* rspec
+
+* Capybara
+
+* Devise
+
+* Simple Form
+
+* MySQL

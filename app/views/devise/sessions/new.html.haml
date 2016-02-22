@@ -1,0 +1,35 @@
+%div
+  %a#tologin.hiddenanchor
+  #wrapper
+    #login.animate.form
+      %section.login_content
+        %h1 Login
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, :placeholder => "email", :required => "", :type => "text",autofocus: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+            %div
+              = f.submit "Log in", clas: "button"
+              %a.reset_pass
+              = link_to "Forgot your password?", new_password_path(resource_name), class: "reset_pass"
+        .clearfix
+        .separator
+          %p.change_link
+          New to site?
+          %a.to_register
+          = link_to "Sign up", new_registration_path(resource_name)
+        .clearfix
+          %div
+            %h1
+              %i.fa.fa-paw{:style => "font-size: 26px;"}
+              Altran Teste!
+            %p ©2015 All Rights Reserved. Edson Carlos Campagnoli!
