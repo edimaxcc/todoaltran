@@ -1,3 +1,3 @@
 == Teste para desenvolvedor TruckPad - TODO List
-== Run $ rake db:seed to populate with faker datas
+== Run $ rake db:seed to populate with fake datas
 == TO login with admin user just enter with the e-mail: Altran@test.com and password: foobar12
