@@ -31,6 +31,7 @@ class TodosController < ApplicationController
 
   
   def edit
+    authorize! :update, @todo
   end
   
   def update
@@ -54,6 +55,7 @@ class TodosController < ApplicationController
 
   def show
   	@todo = Todo.find(params[:id])
+    authorize! :update, @todo
   end
   
   private

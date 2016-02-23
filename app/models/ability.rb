@@ -2,20 +2,17 @@ class Ability
   include CanCan::Ability
 
 def initialize(user)
-    user ||= User.new # guest user
-    if user.role? :admin
-     can :manage, :all
-    elsif user.role? :todo_admin
-     can :manage, [Todo, Asset, Issue]
-    elsif user.role? :todo_team
-     can :read, [Todo, Asset]
-     # manage products, assets he owns
-     can :manage, Todo do |todo|
-        todo.try(:owner) == user
+  if user.admin?
+    can :manage, :all  
+    
+    else
+      can :update, Todo do |todo|
+          todo.user == user
+      end  
+      can :destroy, todo do |todo|
+           todo.user == todo
       end
-      can :manage, Asset do |asset|
-        asset.assetable.try(:owner) == user
-      end
+      can  :create, Todo
     end
   end
 end
