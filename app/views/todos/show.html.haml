@@ -12,7 +12,6 @@
   .row#back_btn
     .col-sm-offset-2.col-sm-10
       = link_to "Back", todos_path, class: "btn btn-primary Back", id: "btn_show"
-      - if current_user
-        - if current_user.id == @todo.user_id
-          = link_to 'Edit', edit_todo_path, class: "btn btn-primary Back", id: "btn_show" 
-          = link_to 'Delete', todo_path,class: "btn btn-primary Back",id: "btn_show",  method: :delete, data: { confirm: 'Are you sure?' }
+      - if can? :update, @todo
+        = link_to 'Edit', edit_todo_path, class: "btn btn-primary Back", id: "btn_show" 
+        = link_to 'Delete', todo_path,class: "btn btn-primary Back",id: "btn_show",  method: :delete, data: { confirm: 'Are you sure?' }

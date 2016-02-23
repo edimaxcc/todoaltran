@@ -9,8 +9,8 @@ def initialize(user)
       can :update, Todo do |todo|
           todo.user == user
       end  
-      can :destroy, todo do |todo|
-           todo.user == todo
+      can :destroy, Todo do |todo|
+           todo.user == user
       end
       can  :create, Todo
     end
