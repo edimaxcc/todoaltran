@@ -60,11 +60,6 @@ class TodosController < ApplicationController
   
   private
 
-  def user_admin(admin)
-   user_admin = User.where(:admin, true)
-   retur admin
-  end
-  
   def set_todo
     @todo = Todo.find(params[:id])
   end
